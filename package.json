@@ -1,0 +1,24 @@
+{
+  "name": "null-waste",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstar95/null-waste.git"
+  },
+  "author": "mstar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mstar95/null-waste/issues"
+  },
+  "homepage": "https://github.com/mstar95/null-waste#readme",
+  "dependencies": {
+    "koa": "^2.8.2",
+    "koa-router": "^7.4.0"
+  }
+}
