@@ -162,7 +162,7 @@ int main()
     
     int numberOfScientists;
     int maxDiffPoints;
-    int bestIndex =0;
+    int bestIndex =-1;
     bool didntBrake = true;
     int diff1, diff2;
     int sum1 = 0, sum2 = 0;
@@ -187,8 +187,8 @@ int main()
              meanHappened = false;
             }
             
-            if(abs(sum1 - sum2) < sumMeans && meanHappened == false) {
-                sumMeans = abs(sum1 - sum2);
+            if(abs(sum1 - sum2) <= sumMeans && meanHappened == false) {
+                sumMeans = sum1 - sum2;
                     bestIndex = i;
             }
             if(sum1 == sum2){
