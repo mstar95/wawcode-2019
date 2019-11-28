@@ -162,11 +162,11 @@ int main()
     
     int numberOfScientists;
     int maxDiffPoints;
-    int bestIndex =0;
+    int bestIndex =-1;
     bool didntBrake = true;
     int diff1, diff2;
     int sum1 = 0, sum2 = 0;
-    int sumMeans = 2000000;
+    int sumMeans = 200000;
     int min1 = -1, max1 = 200000;
     int min2 = -1, max2 = 200000;
     cin >> numberOfScientists >> maxDiffPoints;
@@ -178,15 +178,18 @@ int main()
     bool meanHappened = true;
         diff1 = scientists1.maxDiff(&min1, &max1);    
         diff2 = scientists2.maxDiff(&min2, &max2); 
-       
-    for(int i = 0; i < numberOfScientists/2; i++) {
+      for(int i = 0; i < numberOfScientists/2; i++) {
     
 
         if(diff1 <= maxDiffPoints && diff2 <= maxDiffPoints ) {
+            if(meanHappened){
+             sumMeans = abs(sum1 - sum2); 
+             meanHappened = false;
+            }
             
-            if(abs(sum1 - sum2) < sumMeans ) {
-                sumMeans = (sum1 - sum2);
-                bestIndex = i;
+            if(abs(sum1 - sum2) <= sumMeans && meanHappened == false) {
+                sumMeans = sum1 - sum2;
+                    bestIndex = i;
             }
             if(sum1 == sum2){
                 scientists1.print();
@@ -215,15 +218,6 @@ int main()
                 diff1 =  max1 - min1;   
         }
         if(min2 == s2.score || max2 == s2.score) {
-        scientists2.findMinMax(&min2, &max2);
-                diff2 = max2 - min2;  
-        }
-        
-        if(min1 > s2.score || max1 < s2.score) {
-        scientists1.findMinMax(&min1, &max1);    
-                diff1 =  max1 - min1;   
-        }
-        if(min2 > s1.score || max2 < s1.score) {
         scientists2.findMinMax(&min2, &max2);
                 diff2 = max2 - min2;  
         }
